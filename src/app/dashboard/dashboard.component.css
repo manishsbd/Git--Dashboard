@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 90%;
+    max-width: 600px;
+    max-height: 700px;
+    text-align: center;
+    padding: 20px;
+}
+.profile-bio-container{
+    text-align: left;
+}
+
+.profile-header {
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile-name {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.profile-bio {
+    font-size: 14px;
+    color: #000000;
+}
+
+.follow-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.follow-toggle {
+    display: none;
+}
+
+.follow-toggle:checked + .follow-btn {
+    background-color: #dc3545;
+    content: 'Unfollow';
+}
+
+.follow-toggle:checked + .follow-btn::after {
+    content: 'Unfollow';
+}
+
+.follow-btn::after {
+    content: 'Follow';
+}
+
+.repositories {
+    text-align: left;
+}
+
+.repositories h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.repositories ul {
+    list-style: none;
+    padding: 0;
+}
+
+.repositories li {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        width: 100%;
+        max-width: 90%;
+    }
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 40px; /* Initially, only the icon is visible */
+    transition: width 0.5s ease; /* Smooth expansion when the input is focused */
+    overflow: hidden;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/768px-Magnifying_glass_icon.svg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    z-index: 1;
+    transition: right 0.5s ease; /* Icon moves as the input expands */
+}
+
+.search-input {
+    width: 0;
+    height: 35px;
+    padding: 0 10px;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: width 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+}
+
+.search-container:hover {
+    width: 200px; /* Expand to show the input on hover */
+}
+
+.search-container:hover .search-icon {
+    right: 170px; /* Move the icon to the left when the input expands */
+}
+
+.search-container:hover .search-input {
+    width: 100%;
+    padding: 0 40px 0 15px;
+    opacity: 1;
+    visibility: visible;
+}
+
+

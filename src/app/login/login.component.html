@@ -1,1 +1,27 @@
-<p>login works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form>
+        <h3>Login Here</h3>
+
+        <label for="email">Email</label>
+        <input type="text" [(ngModel)]="loginArray.email" name="email" placeholder="Email or Phone" id="email">
+
+        <label for="password">Password</label>
+        <input type="password" [(ngModel)]="loginArray.password" name="password" placeholder="Password" id="password">
+
+        <label for="token">Personal Token</label>
+        <input type="token" [(ngModel)]="loginArray.token" name="token" placeholder="Personal Token" id="token">
+
+        <button type="button" (click)="onlogin()">Log In</button>
+       
+    </form>
+</body>
+</html>
