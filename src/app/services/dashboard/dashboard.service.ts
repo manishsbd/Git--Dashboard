@@ -9,13 +9,16 @@ export class DashboardService {
   
   private apiUrl = 'https://api.github.com/user';
   private repoUrl ='https://api.github.com/user/repos';
-  private url = 'https://api.github.com/users/';
+  private userUrl = 'https://api.github.com/search/users';
+  private searchUrl ='https://api.github.com/users'
+
   
 
   constructor(private http: HttpClient) { }
 
-  getUser(username:string){
-  this.http.get(this.url + username)
+  searchUsers(query: string): Observable<any> {
+    const url = `${this.userUrl}?q=${query}`;
+    return this.http.get<any>(url);
   }
 
   getUserProfile(token: string): Observable<any> {
@@ -32,5 +35,15 @@ export class DashboardService {
     }
   });
   }
+
+  getUserByUsername(username: string): Observable<any> {
+    return this.http.get<any>(`${this.searchUrl}/${username}`);
+  }
+  getUserRepositories(username: string): Observable<any> {
+    return this.http.get<any>(`${this.searchUrl}/${username}/repos`);
+  }
+  
+  
+  
 
 }

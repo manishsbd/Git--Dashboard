@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthGuard } from './auth/auth.guard';
-import { SearchComponent } from './search/search.component';
+// import { AuthGuard } from './auth/auth.guard';
+import { SearchUserDetailComponent } from './search-user-detail/search-user-detail.component';
 
 const routes: Routes = [
   { path:'',
@@ -13,20 +13,22 @@ const routes: Routes = [
    { path:'login', 
     component: LoginComponent
    },
+   
   
   { path:'',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children:[
       {
-       
         path:'dashboard', 
         component: DashboardComponent
           
       },
       {
-        path:'search', 
-        component: SearchComponent
-      }
+        path:'search-user-detail/:id', 
+        component: SearchUserDetailComponent
+          
+      },
+      
     ]
   }
   ];

@@ -8,14 +8,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { SearchComponent } from './search/search.component';
+import { SearchUserDetailComponent } from './search-user-detail/search-user-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    SearchComponent
+    SearchUserDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +23,7 @@ import { SearchComponent } from './search/search.component';
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
+    AppRoutingModule,
     HttpClientModule,
   ],
   providers: [],

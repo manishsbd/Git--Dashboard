@@ -12,7 +12,7 @@ export class AuthService {
     this.isAuthenticatedVar = value;
   }
   constructor() { }
-  isAuthenticated(): boolean {
-    return !!localStorage.getItem('loginData') ;
-  }
+  // isAuthenticated(): boolean {
+  //   return !!localStorage.getItem('loginData') ;
+  // }
 }

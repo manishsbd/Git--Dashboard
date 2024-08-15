@@ -10,6 +10,8 @@ import { DashboardService } from '../services/dashboard/dashboard.service';
 export class DashboardComponent implements OnInit {
   user: any;
   repo: any;
+  users: any[] = [];
+  searchQuery: string ='';
 
   private token: string | null = '';
 
@@ -31,6 +33,18 @@ export class DashboardComponent implements OnInit {
       console.error('No token found in local storage.');
     }
   }
+
+  onSearch(): void {
+    if (this.searchQuery.trim()) {
+      this.dashboardService.searchUsers(this.searchQuery).subscribe({
+       next: data => this.users = data.items,
+       error: error => console.error('Error fetching data:', error)
+    });
+    } else {
+      this.users = [];
+    }
+  }
+  
 
 
 }
