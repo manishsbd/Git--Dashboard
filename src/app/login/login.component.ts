@@ -1,5 +1,4 @@
-import { Component, inject, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';
 
@@ -10,14 +9,14 @@ import { AuthService } from '../services/auth/auth.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  loginForm!: FormGroup;
 
   loginArray: any ={
     email:'',
-    password:''
+    password:'',
+    token:''
 
   };
-  constructor(private router: Router, private formBuilder: FormBuilder, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
 
 

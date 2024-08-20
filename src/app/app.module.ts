@@ -8,14 +8,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { SearchUserDetailComponent } from './search-user-detail/search-user-detail.component';
+import { BsModalRef, BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    SearchUserDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +25,7 @@ import { SearchUserDetailComponent } from './search-user-detail/search-user-deta
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

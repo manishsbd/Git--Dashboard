@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-</head>
-<body>  
+<div class="loader mx-auto mt-4 mb-4" *ngIf="isSpinner"></div>
 
-    <div class="profile-container" *ngIf="user">
+    <div class="profile-container" *ngIf="user &&!isSpinner">
+        <div class="button-container">
+            <a [routerLink]="['/login']">
+                    <button class="button-22" role="button">Log Out</button>
+                    </a>
+            </div>
         <div class="search-container">
             <a class="search-icon"></a>
             <input type="text" class="search-input" placeholder="Search..."  [(ngModel)]="searchQuery" (input)="onSearch()">
@@ -15,7 +13,7 @@
         <div class="user-list-container"  *ngIf="users.length > 0">
             <ul>
               <li *ngFor="let user of users">        
-                <a [routerLink]="['/search-user-detail', user?.login]">
+                <a [routerLink]="['/dashboard', user?.login]">
                   <img [src]="user?.avatar_url" alt="{{ user?.login }}'s avatar" width="50" />
                   <b>{{ user?.login }}</b>
                 </a>
@@ -23,14 +21,71 @@
             </ul>
           </div>
         
-        <div class="profile-header">
+        <div>
             <img src={{user?.avatar_url}} alt="User's Profile Picture" class="profile-picture">
+            <div class="button-container" *ngIf="!showfollow">
+                <button class="button-22" role="button" (click)="userFollow()">
+                    {{ isFollowing ? 'Unfollow' : 'Follow' }}
+                  </button>
+                </div>
             <h1 class="profile-name">{{user?.name}}</h1>
             <div class="profile-bio-container"><h1 class="profile-bio">Bio: {{user?.bio}}</h1>
-            <p class="profile-bio"><b>Followers: {{user?.followers}}</b></p>
-            <p class="profile-bio"><b>Following: {{user?.following}}</b></p>
+            <p class="profile-follow" (click)="followers(template)"><b>Followers: {{user?.followers}}</b></p>
+            <ng-template #template>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Followers</h4>
+                  <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                    <span aria-hidden="true" class="visually-hidden">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <ng-container *ngIf="followersList.length > 0; else noFollowers">
+                        <ul class="list-group">
+                          <li class="list-group-item" *ngFor="let follower of followersList">
+                            <div class="d-flex align-items-center">
+                              <img [src]="follower.avatar_url" class="avatar" alt="{{ follower.login }}" />
+                              <div class="ms-3">
+                                <p class="mb-0">{{ follower.login }}</p>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </ng-container>
+                      <ng-template #noFollowers>
+                        <p>No followers found.</p>
+                      </ng-template>
+                </div>
+              </ng-template>
+            <p class="profile-follow" (click)="following(template1)"><b>Following: {{user?.following}}</b></p>
+            <ng-template #template1>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Following</h4>
+                  <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                    <span aria-hidden="true" class="visually-hidden">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <ng-container *ngIf="followingList.length > 0; else noFollowing">
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let following of followingList">
+                          <div class="d-flex align-items-center">
+                            <img [src]="following.avatar_url" class="avatar" alt="{{following.login}}" />
+                            <div class="ms-3">
+                              <p class="mb-0">{{following.login}}</p>
+                           
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      </ng-container>
+                      <ng-template #noFollowing>
+                        <p>No following user found.</p>
+                      </ng-template>
+                </div>
+              </ng-template>
             <h2 style="font-size: smaller;"><b>Public Repository: {{user?.public_repos}}</b></h2>
         </div>
+        
         </div>
             
         <div class="repositories" *ngIf="repo && repo.length">
@@ -44,5 +99,3 @@
         </div>
         
     </div>
-</body>
-</html>

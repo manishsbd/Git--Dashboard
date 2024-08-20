@@ -1,31 +1,17 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
 .profile-container {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
     width: 90%;
     max-width: 600px;
-    max-height: 700px;
+    max-height: 800px;
     text-align: center;
     padding: 20px;
+    flex-direction: column; 
+    font-size: 14px;
 }
 .profile-bio-container{
     text-align: left;
-}
-
-.profile-header {
-    margin-bottom: 20px;
 }
 
 .profile-picture {
@@ -44,9 +30,15 @@ body {
     font-size: 14px;
     color: #000000;
 }
+.profile-follow{
+    font-size: 14px;
+    color: #000000;
+    cursor: pointer;
 
-.follow-btn {
-    background-color: #007bff;
+}
+
+/* .follow-btn {
+    background-color: #0251a6;
     color: white;
     border: none;
     border-radius: 5px;
@@ -55,9 +47,9 @@ body {
     font-size: 16px;
     display: inline-block;
     transition: background-color 0.3s ease;
-}
+} */
 
-.follow-toggle {
+/* .follow-toggle {
     display: none;
 }
 
@@ -72,7 +64,7 @@ body {
 
 .follow-btn::after {
     content: 'Follow';
-}
+} */
 
 .repositories {
     text-align: left;
@@ -92,7 +84,7 @@ body {
     background-color: #f4f4f4;
     padding: 10px;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-size: 14px;
 }
 
@@ -102,6 +94,7 @@ body {
         max-width: 90%;
     }
 }
+
 
 body {
     display: flex;
@@ -119,7 +112,6 @@ body {
     align-items: center;
     width: 40px; 
     transition: width 0.5s ease; 
-    overflow: hidden;
 }
 
 .search-icon {
@@ -166,7 +158,7 @@ body {
 
 
 .repositories {
-    max-height: 400px; 
+    max-height: 300px; 
     overflow-y: auto;  
     border: 1px solid #ddd; 
     padding: 10px; 
@@ -207,4 +199,81 @@ body {
     border-radius: 50%; 
     margin-right: 10px; 
   }
+  .button-container {
+    display: flex;
+    justify-content: flex-end; 
+    padding: 0; 
+    margin: 0; 
+  }
+.button-22 {
+    align-items: center;
+    appearance: button;
+    background-color: #0156b7;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    font-family: "RM Neue",sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    padding: 10px 21px;
+    text-align: center;
+    text-transform: none;
+    transition: color .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-left: auto;
+  }
+  
+  .button-22:active {
+    background-color: #006AE8;
+  }
+  
+  .button-22:hover {
+    background-color: #1C84FF;
+  }
+  .loader {
+    width: 50px;
+    padding: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #0c1427;
+    --_m: 
+      conic-gradient(#0000 10%,#000),
+      linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+            mask: var(--_m);
+    -webkit-mask-composite: source-out;
+            mask-composite: subtract;
+    animation: l3 1s infinite linear;
+  }
+  @keyframes l3 {to{transform: rotate(1turn)}}
+
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .list-group-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .ms-2 {
+    margin-left: 8px;
+  }
+  .modal-body {
+    max-height: 600px; 
+    overflow-y: auto;
+}
+  
 

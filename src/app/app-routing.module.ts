@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 // import { AuthGuard } from './auth/auth.guard';
-import { SearchUserDetailComponent } from './search-user-detail/search-user-detail.component';
 
 const routes: Routes = [
   { path:'',
@@ -24,8 +23,8 @@ const routes: Routes = [
           
       },
       {
-        path:'search-user-detail/:id', 
-        component: SearchUserDetailComponent
+        path:'dashboard/:id', 
+        component: DashboardComponent
           
       },
       

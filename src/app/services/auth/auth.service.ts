@@ -11,8 +11,4 @@ export class AuthService {
   setIsAuth(value: boolean) {
     this.isAuthenticatedVar = value;
   }
-  constructor() { }
-  // isAuthenticated(): boolean {
-  //   return !!localStorage.getItem('loginData') ;
-  // }
 }
